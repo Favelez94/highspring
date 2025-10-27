@@ -1,4 +1,6 @@
 package co.favelezr.highspring.domain.model;
 
-public record ShoppingCart(double subtotal, double tax, double total) {
+import java.math.BigDecimal;
+
+public record ShoppingCart(BigDecimal subtotal, BigDecimal tax, BigDecimal total) {
 }
