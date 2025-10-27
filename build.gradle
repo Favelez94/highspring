@@ -1,9 +1,11 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
-group = 'co.favelezr'
-version = '1.0'
+group = 'co.favelezr.highspring'
+version = '1.0.0'
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -15,17 +17,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.34'
-    annotationProcessor 'org.projectlombok:lombok:1.18.34'
-
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 }
 
-tasks.withType(Test).configureEach {
+application {
+    mainClass = 'co.favelezr.highspring.Main'
+}
+
+test {
     useJUnitPlatform()
-    jvmArgs += "--enable-preview"
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.compilerArgs += "--enable-preview"
 }
